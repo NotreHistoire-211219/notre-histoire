@@ -3,261 +3,525 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'Accueil - Responsive</title>
+    <title>Notre Histoire - 6 Ans d'Amour</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
+            --primary-color: #ff6b9d;
+            --secondary-color: #c44569;
+            --accent-color: #ffa07a;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
         }
         
-        .hero-section {
+        .hero-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 100px 0;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .navbar {
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .hero-header::before {
+            content: '♥';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+            animation: pulse 3s infinite;
         }
         
-        .feature-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 50px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
             height: 100%;
-            border: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            display: none;
         }
         
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        @media (min-width: 768px) {
+            .timeline::before {
+                display: block;
+            }
         }
         
-        .feature-icon {
-            font-size: 3rem;
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 50px;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .photo-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .photo-container {
+            position: relative;
+            width: 100%;
+            padding-top: 75%;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            overflow: hidden;
+        }
+        
+        .photo-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: #ccc;
+        }
+        
+        .photo-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .photo-card:hover .photo-container img {
+            transform: scale(1.1);
+        }
+        
+        .photo-content {
+            padding: 30px;
+        }
+        
+        .photo-date {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .photo-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .photo-description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        
+        .heart-icon {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin: 0 10px;
+            animation: heartbeat 1.5s infinite;
         }
         
-        .cta-section {
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 5px solid var(--primary-color);
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-dot {
+                display: block;
+            }
+            
+            .photo-card:nth-child(odd) {
+                margin-right: 55%;
+            }
+            
+            .photo-card:nth-child(even) {
+                margin-left: 55%;
+            }
+        }
+        
+        .counter-section {
+            background: white;
+            padding: 60px 0;
+            margin: 50px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .counter-box {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .counter-label {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .love-quote {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
             padding: 80px 0;
-        }
-        
-        footer {
-            background-color: #212529;
-            color: white;
-            padding: 40px 0 20px;
-        }
-        
-        .social-icons a {
-            color: white;
+            text-align: center;
             font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s ease;
+            font-style: italic;
+            position: relative;
         }
         
-        .social-icons a:hover {
-            color: var(--primary-color);
+        .love-quote::before,
+        .love-quote::after {
+            content: '"';
+            font-size: 5rem;
+            opacity: 0.3;
+            position: absolute;
         }
         
-        .btn-custom {
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+        .love-quote::before {
+            top: 20px;
+            left: 50px;
         }
         
-        .btn-custom:hover {
-            transform: scale(1.05);
+        .love-quote::after {
+            bottom: 20px;
+            right: 50px;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 2rem;
+            color: rgba(255, 107, 157, 0.6);
+            animation: float-up 10s infinite;
+        }
+        
+        @keyframes float-up {
+            0% {
+                bottom: -50px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+            }
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="fas fa-rocket"></i> MonSite
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#accueil">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#apropos">À Propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Floating Hearts Animation -->
+    <div class="floating-hearts" id="floatingHearts"></div>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="accueil">
+    <!-- Hero Header -->
+    <header class="hero-header animate__animated animate__fadeIn">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-3 fw-bold mb-4">Bienvenue sur Notre Site</h1>
-                    <p class="lead mb-4">Nous créons des solutions innovantes pour transformer votre entreprise et atteindre vos objectifs.</p>
-                    <button class="btn btn-light btn-custom me-3">Commencer</button>
-                    <button class="btn btn-outline-light btn-custom">En Savoir Plus</button>
-                </div>
-                <div class="col-lg-6 text-center mt-5 mt-lg-0">
-                    <i class="fas fa-laptop-code" style="font-size: 15rem; opacity: 0.8;"></i>
-                </div>
-            </div>
+            <h1 class="display-3 fw-bold mb-3">Notre Histoire d'Amour</h1>
+            <p class="lead mb-4">
+                <i class="fas fa-heart heart-icon"></i>
+                6 Années Inoubliables Ensemble
+                <i class="fas fa-heart heart-icon"></i>
+            </p>
+            <p class="fs-5">Un voyage à travers nos plus beaux moments</p>
         </div>
-    </section>
+    </header>
 
-    <!-- Services Section -->
-    <section class="py-5" id="services">
+    <!-- Counter Section -->
+    <section class="counter-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Nos Services</h2>
-                <p class="lead text-muted">Des solutions adaptées à vos besoins</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-code feature-icon"></i>
-                            <h4 class="card-title mb-3">Développement Web</h4>
-                            <p class="card-text">Création de sites web modernes et performants avec les dernières technologies.</p>
-                        </div>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="counter-box">
+                        <span class="counter-number">6</span>
+                        <div class="counter-label">Années</div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-mobile-alt feature-icon"></i>
-                            <h4 class="card-title mb-3">Applications Mobile</h4>
-                            <p class="card-text">Développement d'applications iOS et Android natives et cross-platform.</p>
-                        </div>
+                <div class="col-md-3 col-6">
+                    <div class="counter-box">
+                        <span class="counter-number">2190</span>
+                        <div class="counter-label">Jours</div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-chart-line feature-icon"></i>
-                            <h4 class="card-title mb-3">Marketing Digital</h4>
-                            <p class="card-text">Stratégies marketing pour augmenter votre visibilité et vos conversions.</p>
-                        </div>
+                <div class="col-md-3 col-6">
+                    <div class="counter-box">
+                        <span class="counter-number">∞</span>
+                        <div class="counter-label">Souvenirs</div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-paint-brush feature-icon"></i>
-                            <h4 class="card-title mb-3">Design UI/UX</h4>
-                            <p class="card-text">Interfaces utilisateur intuitives et expériences utilisateur exceptionnelles.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-shield-alt feature-icon"></i>
-                            <h4 class="card-title mb-3">Sécurité</h4>
-                            <p class="card-text">Protection de vos données et systèmes contre les menaces cybernétiques.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-headset feature-icon"></i>
-                            <h4 class="card-title mb-3">Support 24/7</h4>
-                            <p class="card-text">Assistance technique disponible à tout moment pour vous accompagner.</p>
-                        </div>
+                <div class="col-md-3 col-6">
+                    <div class="counter-box">
+                        <span class="counter-number">1</span>
+                        <div class="counter-label">Amour Éternel</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="bg-light py-5" id="apropos">
+    <!-- Timeline Section -->
+    <section class="timeline">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <i class="fas fa-users" style="font-size: 12rem; color: var(--primary-color); opacity: 0.7;"></i>
+            <!-- Photo Card 1 -->
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <!-- Remplacez le commentaire ci-dessous par: <img src="votre-photo-1.jpg" alt="Notre première rencontre"> -->
                 </div>
-                <div class="col-lg-6">
-                    <h2 class="display-5 fw-bold mb-4">À Propos de Nous</h2>
-                    <p class="lead mb-3">Nous sommes une équipe passionnée de professionnels dédiés à fournir des solutions digitales de qualité.</p>
-                    <p>Avec plus de 10 ans d'expérience dans le domaine, nous avons aidé des centaines d'entreprises à réussir leur transformation numérique. Notre approche centrée sur le client garantit des résultats exceptionnels.</p>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Expertise reconnue</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Solutions sur mesure</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Support dédié</li>
-                    </ul>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 1 - 2019</span>
+                    <h3 class="photo-title">Notre Première Rencontre</h3>
+                    <p class="photo-description">
+                        Ce jour-là, nos regards se sont croisés et tout a changé. C'était le début d'une aventure extraordinaire qui allait transformer nos vies à jamais. Je me souviens de ton sourire qui a illuminé ma journée.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Card 2 -->
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <!-- <img src="votre-photo-2.jpg" alt="Notre premier voyage"> -->
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 1 - 2019</span>
+                    <h3 class="photo-title">Notre Premier Voyage</h3>
+                    <p class="photo-description">
+                        Découvrir le monde à tes côtés a été magique. Chaque moment partagé, chaque rire, chaque découverte nous a rapprochés un peu plus. Cette escapade restera gravée dans mon cœur pour toujours.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Card 3 -->
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <!-- <img src="votre-photo-3.jpg" alt="Anniversaire spécial"> -->
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 2 - 2020</span>
+                    <h3 class="photo-title">Un Anniversaire Inoubliable</h3>
+                    <p class="photo-description">
+                        Tu as rendu cette journée si spéciale. Chaque attention, chaque surprise montrait à quel point tu me connais et m'aimes. C'est dans ces moments que je réalise la chance que j'ai de t'avoir.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Card 4 -->
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <!-- <img src="votre-photo-4.jpg" alt="Moment complice"> -->
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 3 - 2021</span>
+                    <h3 class="photo-title">Nos Moments de Complicité</h3>
+                    <p class="photo-description">
+                        Les petits moments du quotidien sont devenus nos plus grands trésors. Rire ensemble, cuisiner ensemble, simplement être ensemble... C'est ça, le vrai bonheur.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Card 5 -->
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <!-- <img src="votre-photo-5.jpg" alt="Aventure ensemble"> -->
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 4 - 2022</span>
+                    <h3 class="photo-title">Nos Aventures Continues</h3>
+                    <p class="photo-description">
+                        Chaque nouvelle expérience à tes côtés est une bénédiction. Tu rends chaque jour extraordinaire, même les plus ordinaires. Avec toi, la vie est une belle aventure.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Card 6 -->
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <!-- <img src="votre-photo-6.jpg" alt="Célébration"> -->
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 5 - 2023</span>
+                    <h3 class="photo-title">Célébrer Notre Amour</h3>
+                    <p class="photo-description">
+                        Cinq années déjà, et mon amour pour toi ne fait que grandir. Chaque jour passé ensemble renforce notre lien et me rappelle pourquoi tu es la personne avec qui je veux passer ma vie.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Card 7 -->
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <!-- <img src="votre-photo-7.jpg" alt="Moment récent"> -->
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 6 - 2024</span>
+                    <h3 class="photo-title">Notre Présent Précieux</h3>
+                    <p class="photo-description">
+                        Six ans ensemble et c'est comme si c'était hier. Tu es ma meilleure amie, mon amour, ma partenaire de vie. Merci d'être toi, merci d'être à mes côtés.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo Card 8 -->
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <!-- <img src="votre-photo-8.jpg" alt="Notre futur"> -->
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 6 - 2025</span>
+                    <h3 class="photo-title">Vers Notre Futur</h3>
+                    <p class="photo-description">
+                        Six années magnifiques derrière nous, et tant d'autres à venir. Je suis impatient de continuer à écrire notre histoire, main dans la main, cœur contre cœur. Je t'aime plus que tout.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="container text-center">
-            <h2 class="display-4 fw-bold mb-4">Prêt à Commencer ?</h2>
-            <p class="lead mb-4">Contactez-nous dès aujourd'hui pour discuter de votre projet</p>
-            <button class="btn btn-light btn-lg btn-custom">Contactez-Nous</button>
+    <!-- Love Quote Section -->
+    <section class="love-quote">
+        <div class="container">
+            <p class="mb-0">
+                Dans tes yeux, j'ai trouvé mon foyer.<br>
+                Dans ton cœur, j'ai trouvé mon amour.<br>
+                Dans ton âme, j'ai trouvé ma vie.
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold mb-3">MonSite</h5>
-                    <p>Votre partenaire pour la transformation digitale et l'innovation technologique.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold mb-3">Liens Rapides</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#accueil" class="text-white text-decoration-none">Accueil</a></li>
-                        <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
-                        <li><a href="#apropos" class="text-white text-decoration-none">À Propos</a></li>
-                        <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold mb-3">Suivez-Nous</h5>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="bg-light">
-            <div class="text-center">
-                <p class="mb-0">© 2025 MonSite. Tous droits réservés.</p>
-            </div>
+            <p class="mb-2"><i class="fas fa-heart" style="color: var(--primary-color);"></i> Créé avec amour <i class="fas fa-heart" style="color: var(--primary-color);"></i></p>
+            <p class="mb-0">6 ans ensemble • Pour toujours à venir</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.photo-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Floating hearts animation
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '♥';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            document.getElementById('floatingHearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 13000);
+        }
+
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 3000);
+        
+        // Create initial hearts
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 1000);
+        }
+    </script>
 </body>
 </html>
