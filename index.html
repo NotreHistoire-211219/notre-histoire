@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil - Responsive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        footer {
+            background-color: #212529;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        .btn-custom {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-rocket"></i> MonSite
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apropos">À Propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="accueil">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-3 fw-bold mb-4">Bienvenue sur Notre Site</h1>
+                    <p class="lead mb-4">Nous créons des solutions innovantes pour transformer votre entreprise et atteindre vos objectifs.</p>
+                    <button class="btn btn-light btn-custom me-3">Commencer</button>
+                    <button class="btn btn-outline-light btn-custom">En Savoir Plus</button>
+                </div>
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <i class="fas fa-laptop-code" style="font-size: 15rem; opacity: 0.8;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5" id="services">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Nos Services</h2>
+                <p class="lead text-muted">Des solutions adaptées à vos besoins</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-code feature-icon"></i>
+                            <h4 class="card-title mb-3">Développement Web</h4>
+                            <p class="card-text">Création de sites web modernes et performants avec les dernières technologies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-mobile-alt feature-icon"></i>
+                            <h4 class="card-title mb-3">Applications Mobile</h4>
+                            <p class="card-text">Développement d'applications iOS et Android natives et cross-platform.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-chart-line feature-icon"></i>
+                            <h4 class="card-title mb-3">Marketing Digital</h4>
+                            <p class="card-text">Stratégies marketing pour augmenter votre visibilité et vos conversions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-paint-brush feature-icon"></i>
+                            <h4 class="card-title mb-3">Design UI/UX</h4>
+                            <p class="card-text">Interfaces utilisateur intuitives et expériences utilisateur exceptionnelles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-shield-alt feature-icon"></i>
+                            <h4 class="card-title mb-3">Sécurité</h4>
+                            <p class="card-text">Protection de vos données et systèmes contre les menaces cybernétiques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-headset feature-icon"></i>
+                            <h4 class="card-title mb-3">Support 24/7</h4>
+                            <p class="card-text">Assistance technique disponible à tout moment pour vous accompagner.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="bg-light py-5" id="apropos">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <i class="fas fa-users" style="font-size: 12rem; color: var(--primary-color); opacity: 0.7;"></i>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">À Propos de Nous</h2>
+                    <p class="lead mb-3">Nous sommes une équipe passionnée de professionnels dédiés à fournir des solutions digitales de qualité.</p>
+                    <p>Avec plus de 10 ans d'expérience dans le domaine, nous avons aidé des centaines d'entreprises à réussir leur transformation numérique. Notre approche centrée sur le client garantit des résultats exceptionnels.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Expertise reconnue</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Solutions sur mesure</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Support dédié</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container text-center">
+            <h2 class="display-4 fw-bold mb-4">Prêt à Commencer ?</h2>
+            <p class="lead mb-4">Contactez-nous dès aujourd'hui pour discuter de votre projet</p>
+            <button class="btn btn-light btn-lg btn-custom">Contactez-Nous</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">MonSite</h5>
+                    <p>Votre partenaire pour la transformation digitale et l'innovation technologique.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Liens Rapides</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#accueil" class="text-white text-decoration-none">Accueil</a></li>
+                        <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
+                        <li><a href="#apropos" class="text-white text-decoration-none">À Propos</a></li>
+                        <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Suivez-Nous</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2025 MonSite. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
