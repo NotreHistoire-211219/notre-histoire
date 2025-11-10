@@ -187,7 +187,27 @@
                 margin-left: 55%;
             }
         }
+        .audio-player {
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
         
+        .audio-player audio {
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+        }
+        
+        .audio-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            min-width: 30px;
+        }
         .counter-section {
             background: white;
             padding: 60px 0;
@@ -345,6 +365,13 @@
                     <p class="photo-description">
                         Tu te souviens de cette photo ? Bien sûr que tu t'en souviens, comment pourrait-on l'oublier ? Je crois que c'est à ce moment-là que j'ai compris que ma vie allait changer. Personne ne sait ce qu'il s'est passé dans nos vies à partir de ce jour-là. Pourtant, 6 ans plus tard, on est là à regarder tous les deux cette photo, parce que c'est là qu'on a réellement commencé à vivre. L'introduction de nos vies était pas mal, mais là, on se jette tout les deux dans le grand bain et on décide de construire quelque chose ensemble. Je crois qu'il n'y a rien de plus symbolique que cette photo. Moi, je n'y vois pas qu'un baiser, j'y vois une promesse qui se porte sur l'avenir. Un avenir à deux.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo1.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -361,6 +388,13 @@
                     <p class="photo-description">
                        C'est marrant, mais je me souviens de tous les moments qu'on a passés chez ma mère ensemble. On pourrait se dire que c'est juste des fois où on s'est vu, mais pour moi, c'est bien plus que ça. Je savoure chaque moment que je passe avec toi et je crois que cette passion pour toi porte un nom, ça s'appelle l'amour et je crois bien que tu es la première et tu seras la dernière personne pour qui je ressens ça. On a tous un seul cœur, je t'ai donné le mien, j'espère que tu en prendras soin. Pfff, je suis bête, ça fait 6 ans que tu en prends soin comme personne d'autre ne pourrait le faire.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo2.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -377,6 +411,13 @@
                     <p class="photo-description">
                         Et ça a continué encore et encore, et chaque fois que je te voyais, je tombais un peu plus amoureux. Tu penses qu'il y a une limite en amour ? Parce que, si c'est le cas, la mienne doit être très loin, parce que, après tout ce temps, mon amour pour toi n'a toujours pas fini de grandir. Je me souviens de ces journées qu'on a passées ensemble où je te serrais fort contre moi pour que jamais tu ne partes, et de ces soirées pizza où on se racontait nos vies, notre passé et notre futur. On a appris à se connaître et je dois dire que ton histoire était très intéressante, tellement qu'on aurait pu en faire une série. En tout cas, ce que j'espère, c'est qu'un jour on racontera notre histoire à nos enfants. Je suis sûr que cette histoire-là, ils vont l'adorer.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo3.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -531,6 +572,64 @@
                     </p>
                 </div>
             </div>
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <img src="Photos/nouvellean2023.jpg" alt="Nos vacances à Fréjus">
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 5 - 2023</span>
+                    <h3 class="photo-title">Le Nouvel An (notre premier emsemble)</h3>
+                    <p class="photo-description">
+                      C'est la première fois qu'on passe le Nouvel An ensemble. J'étais trop heureux ce jour-là et en même temps j'étais stressé, une nouvelle année allait débuter et il fallait pas que je rate mon bisou du Nouvel An. Tes robes sont toujours magnifiques, c'est fou comme tu as toujours été forte pour te trouver des vêtements qui te vont bien. Ces moments-là, quand on est tous réunis à table, je les apprécie car toujours tu t'assoyais à côté de moi et tu avais toujours une main sur ma jambe ou tu me tenais la main, ça me rassurait énormément parce que je savais que tu m'aimais et que tout allait bien.
+                    </p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <img src="Photos/spa2023.jpg" alt="Nos vacances à Fréjus">
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 5 - 2024</span>
+                    <h3 class="photo-title">Notre premier SPA</h3>
+                    <p class="photo-description">
+                      Quoi de mieux pour attaquer cette nouvelle année qu'un petit SPA. Ce SPA à Auxerre nous aura fait passer des moments d'amour inoubliables. C'était un peu notre manière de nous échapper de notre quotidien et aussi de notre appartement. J'aurais jamais découvert la joie de passer une nuit dans un jacuzzi si tu n'avais pas été là. Grâce à toi, tous les endroits où nous allons deviennent chaleureux et agréables.
+                    </p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <img src="Photos/vacancefamille.jpg" alt="Nos vacances à Fréjus">
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 5 - 2024</span>
+                    <h3 class="photo-title">Les vacances en famille</h3>
+                    <p class="photo-description">
+                      Nos premières vacances avec toute ta famille. Je me souviens, tu m'avais dit plusieurs fois que ça faisait des années que vous n'étiez pas partis en vacances ensemble. Je pense que pendant ces vacances tout le monde s'est rapproché et on a vécu des moments inoubliables tous ensemble. Je t'avais jamais vu aussi heureuse, on riait du matin au soir, on passait nos journées dans la piscine, on se faisait des restos tous ensemble et on était super heureux d'être là tous les deux. Ce moment en tête à tête qu'on avait passé tous les deux au restaurant et cette promenade qu'on a fait tout autour des villas et toutes les photos qu'on a prises ensemble. Je n'oublie rien et j'aurais tellement aimé que ces vacances durent plus longtemps.
+                    </p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <img src="Photos/lesfils.gif" alt="Nos vacances à Fréjus">
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 5 - 2024</span>
+                    <h3 class="photo-title">L'arrivée des fils</h3>
+                    <p class="photo-description">
+                      Je l'avoue, au départ je n'étais pas vraiment d'accord pour avoir des chats. Mais une fois nos deux fils débarqués dans nos vies, je suis tombé amoureux de leurs petites bouilles et depuis je ne peux plus m'en séparer. Je leur fais tout le temps des câlins, je m'inquiète lorsqu'ils sont malades, je te demande souvent des nouvelles et j'adore les voir jouer et les voir heureux avec nous. Nos fils nous ont appris à avoir de vraies responsabilités et tu es une mère géniale qui s'occupe extrêmement bien d'eux. 
+                    </p>
+                </div>
+            </div>
+            <!-- Ajouter des lectures audios a chaque carte -->
+             <!-- Ajouter une vidéo a la fin pour déclarer mon amour -->
         </div>
     </section>
 
@@ -538,9 +637,9 @@
     <section class="love-quote">
         <div class="container">
             <p class="mb-0">
-                Dans tes yeux, j'ai trouvé mon foyer.<br>
-                Dans ton cœur, j'ai trouvé mon amour.<br>
-                Dans ton âme, j'ai trouvé ma vie.
+                Dans tes yeux, j'ai vu notre avenir<br>
+                Dans ton cœur, j'ai trouvé mon foyer.<br>
+                Dans ton âme, j'ai découvert le véritable amour.
             </p>
         </div>
     </section>
