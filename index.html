@@ -297,6 +297,170 @@
             padding: 30px 0;
             text-align: center;
         }
+        /* Boîte Noire Styles */
+.black-box-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.black-box-btn {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffd700;
+    border: 3px solid #ffd700;
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.black-box-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(255,215,0,0.3);
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+}
+
+.black-box-btn i {
+    margin-right: 10px;
+    color: #ffd700;
+}
+
+/* Modal Styles */
+.quiz-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-modal.active {
+    display: flex;
+}
+
+.quiz-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 3px solid #ffd700;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 60px rgba(255,215,0,0.2);
+}
+
+.quiz-container h2 {
+    color: #ffd700;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.quiz-question {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.quiz-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.quiz-input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.quiz-input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255,215,0,0.5);
+}
+
+.quiz-btn {
+    background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+    color: #1a1a2e;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.quiz-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255,215,0,0.5);
+}
+
+.quiz-btn.close-btn {
+    background: transparent;
+    border: 2px solid #ffd700;
+    color: #ffd700;
+}
+
+.quiz-progress {
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+.quiz-feedback {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.quiz-feedback.correct {
+    background: rgba(0,255,0,0.2);
+    color: #00ff00;
+    display: block;
+}
+
+.quiz-feedback.incorrect {
+    background: rgba(255,0,0,0.2);
+    color: #ff6b6b;
+    display: block;
+}
+
+/* Secret Box Revealed */
+.secret-revealed {
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255,215,0,0.5); }
+    50% { box-shadow: 0 0 40px rgba(255,215,0,0.8); }
+}
+
+.secret-audio-container {
+    background: linear-gradient(135deg, #2d1f3d 0%, #1a1a2e 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.secret-audio-container h3 {
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.secret-audio-container audio {
+    width: 100%;
+}
     </style>
 </head>
 <body>
@@ -434,6 +598,13 @@
                     <p class="photo-description">
                         Bienvenu à Nigloland, notre premier parc d'attraction ensemble. J'étais tellement fier de te faire découvrir le parc qui a bercé mon enfance. On a passé des moments magiques tous les deux à chaque fois qu'on y a été. Malgré le covid, à l'air où tous les couples se séparent, nous, on a fait que renforcer notre relation. C'est normal, quand on aime, rien n'est insurmontable, et même quand on est séparés, ça ne rend nos retrouvailles que meilleures.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo4.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -450,6 +621,13 @@
                     <p class="photo-description">
                         On y est arrivé, nos 1 an. Une année à tout partager, à se découvrir, à s'émerveiller et surtout à s'aimer. Cette année est passée si vite, comme toutes les années depuis que je te connais. J'aimerais tellement retenir le temps juste pour profiter un peu plus de te regarder dans les yeux. J'espère que j'aurai encore bien plus d'années devant moi pour te montrer à quel point je tiens à toi.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo5.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -466,6 +644,13 @@
                     <p class="photo-description">
                         Je suis sûr que tu te souviens pas de celle-là, pourtant ça prouve que tout te va. On attaque l'année 2021, et on est toujours aussi inséparables que l'année d'avant si tu regardes bien. Tu sais ce qui est incroyable sur nos photos, c'est que mes bras sont faits pour que tu sois dedans, je pense que c'est la meilleure des ceintures. Pas pour retenir tes vêtements, mais pour retenir tes sentiments pour moi. Ne t'inquiète pas, je les laisserai pas s'envoler, c'est promis.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo6.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -482,6 +667,13 @@
                     <p class="photo-description">
                         Entre autres, le fait que tu es magnifique comme sur toutes les photos, je voulais surtout parler de cette médaille que tu m'as offerte. Je crois que je t'ai jamais assez remercié pour tous les cadeaux que tu m'as faits. C'est pas des cadeaux pour faire plaisir à mes yeux, mais à mon cœur. Tu la remplis de bonheur en me montrant qu'un cadeau en rapport avec les choses que j'aime, c'est la meilleure des manières de me montrer que tu tiens à moi. J'ai jamais quitté tous ces cadeaux que tu m'as offerts parce qu'avoir ces bijoux avec moi me protège et me permet d'être toujours près de toi en toute circonstance.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo7.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -498,6 +690,13 @@
                     <p class="photo-description">
                        Nous voilà arrivés à Fréjus pour nos premières vacances. Je suis tellement fier de ces vacances. C'est la première fois qu'on passe des vacances ensemble et c'est aussi la première fois que je n'avais pas envie de repartir, je voulais passer ma vie à la plage avec toi, tu transformes tous les moments que l'on passe ensemble, j'aimerais tellement pouvoir stopper le temps pour profiter de ces vacances éternellement avec toi.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo8.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -513,6 +712,13 @@
                     <p class="photo-description">
                        Une nouvelle année commence pour nous, j'approche de la fin de mon BTS et du début de l'école d'ingé et toi tu t'apprêtes à quitter le lycée en septembre pour te lancer dans les études supérieures que tu as toujours voulu faire. À ce moment je me souviens qu'on profitait de chaque instant ensemble car on avait peur d'être séparés prochainement à cause de nos études. Je savais une seule chose à ce moment, c'est que, peu importe la distance, on aurait tout fait pour être ensemble parce qu'on ne peut pas vivre sans se serrer fort dans les bras.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo9.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
@@ -528,6 +734,13 @@
                     <p class="photo-description">
                        Il était temps que l'on revienne à Nigloland, j'ai l'impression qu'on commence à beaucoup s'attacher à ce parc tous les deux, on l'aura vu grandir en même temps que nous. Comme d'habitude, cette journée était parfaite et même s'il y avait plus de monde que d'habitude, c'est pas grave, j'ai passé plus de temps à discuter avec toi dans la file d'attente et c'est ça qui me plait le plus.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo10.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
             <div class="photo-card" data-aos="fade-up">
@@ -542,6 +755,13 @@
                     <p class="photo-description">
                        Félicitations à nous deux, on est officiellement des diplômés. Tu as obtenu ton BAC et moi mon BTS. Maintenant, on sait tous les deux que l'on se verra moins souvent, je serai à Auxerre et toi tu graviteras entre Melun et chez toi. Mais une chose est sûre, on profitera encore plus d'être ensemble lorsque l'on se voit car on ne sait pas quand sera la prochaine fois. Pendant cette séparation, une chose n'a pas changé, c'est l'amour que l'on avait l'un pour l'autre.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo11.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
             <div class="photo-card" data-aos="fade-up">
@@ -556,6 +776,13 @@
                     <p class="photo-description">
                        Nous passons officiellement en 2023 et tout va bien, nous sommes amoureux plus que jamais, on est heureux dans nos études et on arrive à se voir le plus souvent possible. J'ai un secret à te révéler par rapport à mon style vestimentaire. À ce moment-là, je voulais pas porter des costumes pour ressembler aux Peaky Blinders, je voulais simplement porter des costumes parce que je voulais que tu me trouves beau et élégant. Je n'ai pas fait tout ça juste pour changer de style, mais simplement pour que tu tombes amoureuse de moi une nouvelle fois et que je me détache une fois pour toutes de tous mes t-shirts que tu trouves moches mais que tu avais acceptés avec le temps car tu ne me voyais jamais habillé autrement. Évidemment, c'est le côté financier qui a mis fin à la période costume (et également mon changement d'apparence).
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo12.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
             <div class="photo-card" data-aos="fade-up">
@@ -570,6 +797,13 @@
                     <p class="photo-description">
                        L'un des plus beaux moments qu'on a passés ensemble. Je me souviens quand on s'allongeait dans l'herbe et qu'on discutait dans le parc. Ce jour-là on a pu faire toutes les attractions plusieurs fois, c'était génial et on s'est tellement amusés. À cette époque j'étais encore ton passager princesse.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo13.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
             <div class="photo-card" data-aos="fade-up">
@@ -584,6 +818,13 @@
                     <p class="photo-description">
                       C'est la première fois qu'on passe le Nouvel An ensemble. J'étais trop heureux ce jour-là et en même temps j'étais stressé, une nouvelle année allait débuter et il fallait pas que je rate mon bisou du Nouvel An. Tes robes sont toujours magnifiques, c'est fou comme tu as toujours été forte pour te trouver des vêtements qui te vont bien. Ces moments-là, quand on est tous réunis à table, je les apprécie car toujours tu t'assoyais à côté de moi et tu avais toujours une main sur ma jambe ou tu me tenais la main, ça me rassurait énormément parce que je savais que tu m'aimais et que tout allait bien.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo14.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
             <div class="photo-card" data-aos="fade-up">
@@ -598,6 +839,13 @@
                     <p class="photo-description">
                       Quoi de mieux pour attaquer cette nouvelle année qu'un petit SPA. Ce SPA à Auxerre nous aura fait passer des moments d'amour inoubliables. C'était un peu notre manière de nous échapper de notre quotidien et aussi de notre appartement. J'aurais jamais découvert la joie de passer une nuit dans un jacuzzi si tu n'avais pas été là. Grâce à toi, tous les endroits où nous allons deviennent chaleureux et agréables.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo15.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
             <div class="photo-card" data-aos="fade-up">
@@ -612,6 +860,13 @@
                     <p class="photo-description">
                       Nos premières vacances avec toute ta famille. Je me souviens, tu m'avais dit plusieurs fois que ça faisait des années que vous n'étiez pas partis en vacances ensemble. Je pense que pendant ces vacances tout le monde s'est rapproché et on a vécu des moments inoubliables tous ensemble. Je t'avais jamais vu aussi heureuse, on riait du matin au soir, on passait nos journées dans la piscine, on se faisait des restos tous ensemble et on était super heureux d'être là tous les deux. Ce moment en tête à tête qu'on avait passé tous les deux au restaurant et cette promenade qu'on a fait tout autour des villas et toutes les photos qu'on a prises ensemble. Je n'oublie rien et j'aurais tellement aimé que ces vacances durent plus longtemps.
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo16.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
             <div class="photo-card" data-aos="fade-up">
@@ -626,13 +881,118 @@
                     <p class="photo-description">
                       Je l'avoue, au départ je n'étais pas vraiment d'accord pour avoir des chats. Mais une fois nos deux fils débarqués dans nos vies, je suis tombé amoureux de leurs petites bouilles et depuis je ne peux plus m'en séparer. Je leur fais tout le temps des câlins, je m'inquiète lorsqu'ils sont malades, je te demande souvent des nouvelles et j'adore les voir jouer et les voir heureux avec nous. Nos fils nous ont appris à avoir de vraies responsabilités et tu es une mère géniale qui s'occupe extrêmement bien d'eux. 
                     </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo17.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <img src="Photos/escapegame.jpg" alt="Nos vacances à Fréjus">
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 6 - 2025</span>
+                    <h3 class="photo-title">Notre premier escape game (et j'espère pas le dernier)</h3>
+                    <p class="photo-description">
+                      Notre premier escape game, je sais que ce jour-là tu étais un peu perplexe à l'idée de faire un escape game, c'est pas forcément ce qui t'attirait le plus et pourtant tu as fait l'effort d'y aller avec moi et pour ça je te remercie. Ce jour-là on a beaucoup galéré et je pense qu'on a largement dépassé le temps réglementaire, pourtant je me suis éclaté avec toi et c'est ça l'important, peu importe qu'on gagne ou qu'on perde, l'important c'est que l'on soit ensemble. 
+                    </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo18.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <img src="Photos/avenged.jpg" alt="Nos vacances à Fréjus">
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 6 - 2025</span>
+                    <h3 class="photo-title">Avenged Sevenfold</h3>
+                    <p class="photo-description">
+                      Notre premier concert d'Avenged Sevenfold, je sais pas si tu te rends compte du truc mais c'est le concert que je voulais voir au moins une fois dans ma vie. Je n'avais jamais eu la chance de les voir en vrai et c'est avec toi ce jour-là que je les ai vus pour la première fois. J'ai adoré ce concert et je pense que tu l'as beaucoup aimé aussi malgré la fin un peu catastrophique. C'était une journée incroyable et on repart avec plein de vidéos, de photos et de souvenirs. À chaque fois que je revois les t-shirts du concert, je repense à nous et à quel point on est un couple incroyable qui se construit autour des mêmes goûts. Je suis tellement fier que tu sois ma femme. 
+                    </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo19.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="photo-container">
+                    <i class="fas fa-camera photo-placeholder"></i>
+                    <img src="Photos/vacanceadeux.jpg" alt="Nos vacances à Fréjus">
+                </div>
+                <div class="photo-content">
+                    <span class="photo-date"><i class="far fa-calendar-alt me-2"></i>Année 6 - 2025</span>
+                    <h3 class="photo-title">Nos vacances a deux</h3>
+                    <p class="photo-description">
+                      Alors là, je l'avoue et c'est sincère, c'est les meilleures vacances que j'ai passées. On a fait plein de choses pendant ces vacances, on a fait plein de restos, des balades à des endroits super. Évidemment, on va pas se mentir que Cannes était sans doute le pire truc qu'on a fait pendant les vacances. En dehors de ça, tout était parfait et le petit prolongement des vacances à l'hôtel était parfait aussi. On a fait aussi notre première randonnée ensemble qui nous aura apporté des photos mémorables (et surtout de la douleur), mais je te promets qu'on y retournera plus en forme que jamais et ce sera notre Kaizen à nous.
+                    </p>
+                    <div class="audio-player">
+                        <i class="fas fa-microphone audio-icon"></i>
+                        <audio controls>
+                            <source src="Audio/photo20.m4a" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                    </div>
                 </div>
             </div>
             <!-- Ajouter des lectures audios a chaque carte -->
              <!-- Ajouter une vidéo a la fin pour déclarer mon amour -->
         </div>
     </section>
+<!-- Black Box Section -->
+<section class="black-box-section">
+    <div class="container">
+        <button class="black-box-btn" onclick="openQuiz()">
+            <i class="fas fa-lock"></i> Boîte Noire
+        </button>
+        <p class="mt-3 text-muted">Un secret t'attend si tu me connais vraiment...</p>
+    </div>
+</section>
 
+<!-- Quiz Modal -->
+<div class="quiz-modal" id="quizModal">
+    <div class="quiz-container">
+        <h2><i class="fas fa-key"></i> Déverrouille la Boîte Noire</h2>
+        <div class="quiz-progress" id="quizProgress">Question 1/6 • Bonnes réponses: 0/3</div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+        <p class="quiz-question" id="quizQuestion"></p>
+        <input type="text" class="quiz-input" id="quizAnswer" placeholder="Ta réponse..." onkeypress="handleKeyPress(event)">
+        <div>
+            <button class="quiz-btn" onclick="checkAnswer()">Valider</button>
+            <button class="quiz-btn close-btn" onclick="closeQuiz()">Fermer</button>
+        </div>
+        
+        <!-- Secret Content (hidden initially) -->
+        <div id="secretContent" style="display: none;">
+            <div class="secret-audio-container secret-revealed">
+                <h3><i class="fas fa-heart"></i> Tu as déverrouillé mon cœur <i class="fas fa-heart"></i></h3>
+                <p>Voici mes pensées les plus profondes pour toi...</p>
+                <audio controls>
+                    <source src="Audio/secret.m4a" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Love Quote Section -->
     <section class="love-quote">
         <div class="container">
@@ -694,6 +1054,136 @@
         for (let i = 0; i < 5; i++) {
             setTimeout(createFloatingHeart, i * 1000);
         }
+       // Quiz System for Black Box
+    const questions = [
+        {
+            question: "Quel est le premier sujet de conversation que l'on a eu par message sur Snapchat ?",
+            answer: "tu pense quoi des nudes"
+        },
+        {
+            question: "Quel est mon jeu vidéo préféré ?",
+            answer: "overwatch"
+        },
+        {
+            question: "Quel est le nom de la première grosse attraction à sensation que nous avons fait à Nigloland ?",
+            answer: "alpina blitz"
+        },
+        {
+            question: "Quel est le repas que je t'ai le plus apporté quand nous étions à Auxerre ?",
+            answer: "des sushis"
+        },
+        {
+            question: "Quel est le nom de la chanson qui décrit le mieux mes sentiments pour toi ?",
+            answer: "addicted to you"
+        },
+        {
+            question: "Dernière question... Veux-tu continuer ta vie avec moi ? 💍",
+            answer: "oui"
+        }
+    ];
+
+    let currentQuestion = 0;
+
+    function openQuiz() {
+        currentQuestion = 0;
+        document.getElementById('quizModal').classList.add('active');
+        document.getElementById('secretContent').style.display = 'none';
+        document.getElementById('quizAnswer').style.display = 'block';
+        document.querySelector('.quiz-btn').style.display = 'inline-block';
+        showQuestion();
+    }
+
+    function closeQuiz() {
+        document.getElementById('quizModal').classList.remove('active');
+    }
+
+    function showQuestion() {
+        const questionEl = document.getElementById('quizQuestion');
+        const progressEl = document.getElementById('quizProgress');
+        const feedbackEl = document.getElementById('quizFeedback');
+        const answerInput = document.getElementById('quizAnswer');
+        
+        feedbackEl.textContent = '';
+        feedbackEl.className = 'quiz-feedback';
+        answerInput.value = '';
+        answerInput.focus();
+        
+        if (currentQuestion < questions.length) {
+            questionEl.textContent = questions[currentQuestion].question;
+            progressEl.textContent = `Question ${currentQuestion + 1}/${questions.length}`;
+        }
+    }
+
+    function normalizeAnswer(str) {
+        return str.toLowerCase()
+            .trim()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[?!.,]/g, "");
+    }
+
+    function checkAnswer() {
+        const answerInput = document.getElementById('quizAnswer');
+        const feedbackEl = document.getElementById('quizFeedback');
+        const userAnswer = normalizeAnswer(answerInput.value);
+        
+        // Vérifier si le champ est vide
+        if (userAnswer === '') {
+            feedbackEl.textContent = "⚠️ Tu dois entrer une réponse !";
+            feedbackEl.className = 'quiz-feedback incorrect';
+            return;
+        }
+        
+        const correctAnswer = normalizeAnswer(questions[currentQuestion].answer);
+        
+        // Check if answer contains the key words or is similar
+        const isCorrect = userAnswer.includes(correctAnswer) || correctAnswer.includes(userAnswer) || userAnswer === correctAnswer;
+        
+        if (isCorrect) {
+            feedbackEl.textContent = "💕 Bonne réponse ! Tu me connais si bien...";
+            feedbackEl.className = 'quiz-feedback correct';
+            
+            currentQuestion++;
+            
+            setTimeout(() => {
+                if (currentQuestion >= questions.length) {
+                    revealSecret();
+                } else {
+                    showQuestion();
+                }
+            }, 1500);
+        } else {
+            feedbackEl.textContent = "Ce n'est pas ça... Réessaie ! 💔";
+            feedbackEl.className = 'quiz-feedback incorrect';
+            answerInput.value = '';
+            answerInput.focus();
+        }
+    }
+
+    function revealSecret() {
+        const questionEl = document.getElementById('quizQuestion');
+        const progressEl = document.getElementById('quizProgress');
+        const answerInput = document.getElementById('quizAnswer');
+        const validateBtn = document.querySelector('.quiz-btn');
+        const secretContent = document.getElementById('secretContent');
+        
+        questionEl.textContent = "🎉 Félicitations mon amour ! 🎉";
+        progressEl.textContent = "La boîte noire est déverrouillée !";
+        answerInput.style.display = 'none';
+        validateBtn.style.display = 'none';
+        secretContent.style.display = 'block';
+        
+        // Create celebration hearts
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createFloatingHeart, i * 200);
+        }
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            checkAnswer();
+        }
+    }
     </script>
 </body>
 </html>
